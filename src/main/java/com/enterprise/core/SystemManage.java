@@ -4,6 +4,7 @@ import com.enterprise.cache.CacheProvider;
 import com.enterprise.cache.SimpleCacheProvider;
 import com.enterprise.entity.About;
 import com.enterprise.entity.ArticleCategory;
+import com.enterprise.entity.Classic;
 import com.enterprise.entity.Contact;
 import com.enterprise.entity.FriendLinks;
 import com.enterprise.entity.IndexImg;
@@ -11,9 +12,11 @@ import com.enterprise.entity.Messages;
 import com.enterprise.entity.Recruitment;
 import com.enterprise.entity.Service;
 import com.enterprise.entity.SystemSetting;
+
 import org.apache.commons.lang.StringUtils;
 
 import javax.annotation.PostConstruct;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Properties;
@@ -137,7 +140,14 @@ public class SystemManage {
     public void setService(List<Service> servies){
         putCacheObject("services",(Serializable)(servies));
     }
-
+     
+    //典型案例
+    public List<Classic> getClassic(){
+    	return getCacheObject("classics");
+    }
+    public void setClassic(List<Classic> classics){
+        putCacheObject("classics",(Serializable)(classics));
+    }
 
 
 }

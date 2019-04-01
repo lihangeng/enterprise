@@ -33,6 +33,8 @@ public class FrontCache implements ServletContextAware {
 	private AboutService aboutService;
 	@Autowired
 	private ServiceService serviceService;
+	@Autowired
+	private ClassicService classicService;
 
 	@Autowired
     public void setSystemManage(SystemManage systemManage) {
@@ -59,6 +61,7 @@ public class FrontCache implements ServletContextAware {
 		loadContact();
 		loadAbout();
 		loadService();
+		loadClassic();
 	}
 	/**
 	 * 加载系统设置缓存
@@ -158,6 +161,12 @@ public class FrontCache implements ServletContextAware {
 		List<Service> services = new ArrayList<Service>();
 		services = serviceService.selectList(new Service());
 		systemManage.setService(services);
+	}
+	
+	public void loadClassic() throws Exception{
+		List<Classic> classics = new ArrayList<Classic>();
+		classics = classicService.selectList(new Classic());
+		systemManage.setClassic(classics);
 	}
 
 

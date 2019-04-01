@@ -57,6 +57,7 @@ public class ServiceAction extends BaseController<Service>{
     }
 
     @Override
+    @RequestMapping("deletes")
     public String deletes(HttpServletRequest request, String[] ids, @ModelAttribute("e") Service service, RedirectAttributes flushAttrs) throws Exception {
         getService().deletes(ids);
         frontCache.loadService();

@@ -10,7 +10,7 @@
 <%@ include file="/manage/system/pageBase.jsp" %>
 <%@ page info="服务领域" %>
 
-<form action="<%=path%>/manage/service" method="post">
+<form action="<%=path%>/manage/classic" method="post">
     <div style="height:auto!important;height:550px;min-height:550px;">
         <h3 style="border-bottom: 1px solid #D7D7D7;color: #666666;font-size: 28px;padding-bottom: 20px;margin-bottom: 30px;">
             <%=getServletInfo()%>

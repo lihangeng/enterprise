@@ -1,4 +1,4 @@
-<%@ page import="com.enterprise.entity.Service" %><%--
+<%@ page import="com.enterprise.entity.Classic" %><%--
   Created by IntelliJ IDEA.
   User: Cesiumai
   Date: 2016/6/17
@@ -17,10 +17,10 @@
 <div class="warp_main">
     <div class="warp_left">
         <div class="warp_left_box">
-            <h3>服务领域</h3>
+            <h3>典型案例</h3>
             <ul>
-                <c:forEach var="item" items="<%=SystemManage.getInstance().getService()%>">
-                    <li <c:if test="${!empty id && id eq item.id}">class="active"</c:if> ><a href="<%=path%>/service/${item.id}">${item.title}</a></li>
+                <c:forEach var="item" items="<%=SystemManage.getInstance().getClassic()%>">
+                    <li <c:if test="${!empty id && id eq item.id}">class="active"</c:if> ><a href="<%=path%>/classic/${item.id}">${item.title}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -29,13 +29,13 @@
         <div class="breadcrumb">
             <a href="<%=path%>/index">首页</a>
             >
-            <a href="<%=path%>/service">服务领域</a>
+            <a href="<%=path%>/classic">典型案例</a>
             <%
                 String id = (String)request.getAttribute("id");
-                    for (Service ac : SystemManage.getInstance().getService()) {
+                    for (Classic ac : SystemManage.getInstance().getClassic()) {
                         if ((String.valueOf(ac.getId())).equals(id)) {
             %>
-            ><a href="<%=path%>/service/<%=ac.getId()%>"><%=ac.getTitle()%>
+            ><a href="<%=path%>/classic/<%=ac.getId()%>"><%=ac.getTitle()%>
         </a>
             <%
                             break;
@@ -46,14 +46,18 @@
         <div style="overflow: hidden;">
             <div class="article_content">
                 <%
-                    for (Service ac : SystemManage.getInstance().getService()) {
+                    for (Classic ac : SystemManage.getInstance().getClassic()) {
                         System.out.println(id);
                         if ((String.valueOf(ac.getId())).equals(id)) {
+                        	System.out.println(ac.getId());
+                        	System.out.println(ac.getContentHtml());
                 %>
                         <%=ac.getContentHtml()%>
                 <%
                             break;
-                        }else{%>
+                        }else{
+                        	System.out.println(ac.getId());
+                        %>
                 <% 
                             }
                     }
